@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - CyberLab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CyberLab Practice Portal</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Profile</h2>
+    <form id="profileForm">
+      <label>Display Name: <input type="text" id="displayName"></label><br><br>
+      <label>Bio: <textarea id="bio" rows="4" cols="40"></textarea></label><br><br>
+      <button type="submit">Save Profile</button>
+    </form>
+    <div id="savedProfile"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
