@@ -23,15 +23,14 @@
 
     <section class="search-box">
       <h3>Search the lab</h3>
-      <form id="searchForm">
-        <input type="text" id="searchInput" placeholder="Search..." name="q">
+      <form method="GET" action="">
+        <input type="text" name="q" placeholder="Search..." value="">
         <button type="submit">Search</button>
       </form>
       <div id="searchResult"></div>
     </section>
   </main>
 
-  <script src="script.js"></script>
   <script>
     // VULNERABILITY: Reflected XSS - user input is inserted directly into the page
     const params = new URLSearchParams(window.location.search);
@@ -39,6 +38,10 @@
     if (query) {
       document.getElementById('searchResult').innerHTML = 
         `<p>You searched for: <strong>${query}</strong></p>`;
+    }
+  </script>
+</body>
+</html>>`;
     }
   </script>
 </body>
