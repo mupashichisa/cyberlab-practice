@@ -23,25 +23,33 @@
 
     <section class="search-box">
       <h3>Search the lab</h3>
-      <form method="GET" action="">
-        <input type="text" name="q" placeholder="Search..." value="">
+      
+      <form method="GET" action="index.html">
+        <input type="text" name="q" id="searchInput" placeholder="Search..." autocomplete="off">
         <button type="submit">Search</button>
       </form>
-      <div id="searchResult"></div>
+
+      <div id="searchResult" style="margin-top: 15px; padding: 12px; background: #334155; border-radius: 6px;">
+        <!-- Search result will appear here -->
+      </div>
     </section>
   </main>
 
   <script>
-    // VULNERABILITY: Reflected XSS - user input is inserted directly into the page
+    // ========== INTENTIONALLY VULNERABLE CODE ==========
+    // This code takes user input from the URL and inserts it directly into the page
+    // without any cleaning or encoding. This creates a Reflected XSS vulnerability.
+
     const params = new URLSearchParams(window.location.search);
     const query = params.get('q');
+
     if (query) {
+      // DANGEROUS: Directly inserting user input into HTML
       document.getElementById('searchResult').innerHTML = 
-        `<p>You searched for: <strong>${query}</strong></p>`
-    }
-  </script>
-</body>
-</html>
+        "<p>You searched for: <strong>" + query + "</strong></p>";
+    } else {
+      document.getElementById('searchResult').innerHTML = 
+        "<p style='color:#94a3b8;'>No search term entered yet.</p>";
     }
   </script>
 </body>
